@@ -1,20 +1,32 @@
 {
-  "name": "gearman-node",
-  "version": "0.9.2",
+  "name": "gearman-node-bda",
+  "version": "0.9.3",
   "description": "Node.js library for the Gearman distributed job system with support for multiple servers",
-  "keywords": ["gearman", "distributed", "message queue", "job", "worker"],
+  "keywords": [
+    "gearman",
+    "distributed",
+    "message queue",
+    "job",
+    "worker"
+  ],
   "author": "zero <zero.27@qq.com>",
   "main": "./lib/gearmanode",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bda-research/gearman-node"
+    "url": "git+https://github.com/bda-research/gearman-node.git"
   },
-  "bugs" : { "url" : "https://github.com/bda-research/gearman-node/issues" },
-  "engines": { "node": ">=0.10.0" },
-  "licenses": [{
+  "bugs": {
+    "url": "https://github.com/bda-research/gearman-node/issues"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "licenses": [
+    {
       "type": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-  }],
+    }
+  ],
   "scripts": {
     "test": "mocha",
     "doc": "jsdoc lib/gearmanode.js lib/gearmanode/*.js"
@@ -27,5 +39,15 @@
     "should": ">=1.2.2",
     "sinon": ">=1.7.3"
   },
-  "files": ["lib", "README.md", "LICENSE"]
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/bda-research/gearman-node#readme",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "license": "ISC"
 }
