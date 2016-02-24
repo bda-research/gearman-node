@@ -1,6 +1,6 @@
 {
   "name": "gearman-node-bda",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Node.js library for the Gearman distributed job system with support for multiple servers",
   "keywords": [
     "gearman",
