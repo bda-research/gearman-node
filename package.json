@@ -1,6 +1,6 @@
 {
   "name": "gearman-node-bda",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "Node.js library for the Gearman distributed job system with support for multiple servers",
   "keywords": [
     "gearman",
@@ -32,7 +32,7 @@
     "doc": "jsdoc lib/gearmanode.js lib/gearmanode/*.js"
   },
   "dependencies": {
-    "winston": ">=0.7.1"
+    "winston": "^2.0.0"
   },
   "devDependencies": {
     "mocha": ">=1.10.0",
