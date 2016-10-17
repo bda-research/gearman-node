@@ -29,6 +29,7 @@ describe('Client/Worker', function() {
                 job.payload.toString().should.equal('123');
                 job.workComplete(job.payload.toString().split("").reverse().join(""))
             });
+	    w.grabJob(1);
             var job = c.submitJob('reverse', '123');
             job.on('complete', function() {
                 job.response.should.be.an.instanceof(Buffer);
@@ -42,6 +43,7 @@ describe('Client/Worker', function() {
                 job.payload.toString().should.equal('123');
                 job.workComplete(job.payload.toString().split("").reverse().join(""))
             });
+	    w.grabJob(1);
             var job = c.submitJob('reverse', new Buffer([49, 50, 51]));
             job.on('complete', function() {
                 job.response.should.be.an.instanceof(Buffer);
@@ -55,6 +57,7 @@ describe('Client/Worker', function() {
                 job.payload.toString().should.equal('žluťoučký kůň');
                 job.workComplete(job.payload.toString().split("").reverse().join(""))
             });
+	    w.grabJob(1);
             var job = c.submitJob('reverse', 'žluťoučký kůň');
             job.on('complete', function() {
                 job.response.should.be.an.instanceof(Buffer);
@@ -68,6 +71,7 @@ describe('Client/Worker', function() {
                 job.payload.should.equal('123');
                 job.workComplete(job.payload.toString().split("").reverse().join(""))
             }, {toStringEncoding: 'ascii'});
+	    w.grabJob(1);
             var job = c.submitJob('reverse', Buffer('123', 'ascii'), {toStringEncoding: 'ascii'});
             job.on('complete', function() {
                 job.response.should.be.an.instanceof(String);
@@ -81,6 +85,7 @@ describe('Client/Worker', function() {
                 job.payload.should.equal('123');
                 job.workComplete(job.payload.split("").reverse().join(""))
             }, {toStringEncoding: 'ascii'});
+	    w.grabJob(1);
             var job = c.submitJob('reverse', new Buffer([49, 50, 51])); // '123'
             job.on('complete', function() {
                 job.response.should.be.an.instanceof(Buffer);
@@ -97,6 +102,7 @@ describe('Client/Worker', function() {
                 job.sendWorkData('456');
                 job.workComplete()
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123');
             job.on('workData', function(data) {
                 data.should.be.an.instanceof(Buffer);
@@ -109,6 +115,7 @@ describe('Client/Worker', function() {
                 job.sendWorkData(new Buffer([52, 53, 54]));
                 job.workComplete()
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123');
             job.on('workData', function(data) {
                 data.should.be.an.instanceof(Buffer);
@@ -121,6 +128,7 @@ describe('Client/Worker', function() {
                 job.sendWorkData(new Buffer([52, 53, 54]));
                 job.workComplete()
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123', {toStringEncoding: 'ascii'});
             job.on('workData', function(data) {
                 data.should.be.an.instanceof(String);
@@ -137,6 +145,7 @@ describe('Client/Worker', function() {
                 job.reportWarning('456');
                 job.workComplete()
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123');
             job.on('warning', function(data) {
                 data.should.be.an.instanceof(Buffer);
@@ -149,6 +158,7 @@ describe('Client/Worker', function() {
                 job.reportWarning(new Buffer([52, 53, 54]));
                 job.workComplete()
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123');
             job.on('warning', function(data) {
                 data.should.be.an.instanceof(Buffer);
@@ -161,6 +171,7 @@ describe('Client/Worker', function() {
                 job.reportWarning(new Buffer([52, 53, 54]));
                 job.workComplete()
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123', {toStringEncoding: 'ascii'});
             job.on('warning', function(data) {
                 data.should.be.an.instanceof(String);
@@ -177,6 +188,7 @@ describe('Client/Worker', function() {
             w.addFunction('dummy', function (job) {
                 job.reportException(new Buffer([52, 53, 54]));
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123');
             job.on('exception', function(data) {
                 data.should.be.an.instanceof(Buffer);
@@ -189,6 +201,7 @@ describe('Client/Worker', function() {
             w.addFunction('dummy', function (job) {
                 job.reportException(new Buffer([52, 53, 54]));
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123');
             job.on('exception', function(data) {
                 data.should.be.an.instanceof(Buffer);
@@ -201,6 +214,7 @@ describe('Client/Worker', function() {
             w.addFunction('dummy', function (job) {
                 job.reportException(new Buffer([52, 53, 54]));
             });
+	    w.grabJob(1);
             var job = c.submitJob('dummy', '123', {toStringEncoding: 'ascii'});
             job.on('exception', function(data) {
                 data.should.be.an.instanceof(String);
@@ -220,6 +234,7 @@ describe('Client/Worker', function() {
                 job.workComplete('ok');
                 done();
             });
+	    w.grabJob(1);
             var job = c.submitJob('reverse', 'alfa', {unique: 'foo'});
         })
         it('should propagate empty unique if not provided by client', function(done) {
@@ -230,6 +245,7 @@ describe('Client/Worker', function() {
                 job.workComplete('ok');
                 done();
             });
+	    w.grabJob(1);
             var job = c.submitJob('reverse', 'alfa');
         })
         it('should NOT propagate unique to worker', function(done) { // worker with {withUnique: false} by default
@@ -238,6 +254,7 @@ describe('Client/Worker', function() {
                 job.workComplete('ok');
                 done();
             });
+	    w.grabJob(1);
             var job = c.submitJob('reverse', 'alfa', {unique: 'foo'});
         })
     })
